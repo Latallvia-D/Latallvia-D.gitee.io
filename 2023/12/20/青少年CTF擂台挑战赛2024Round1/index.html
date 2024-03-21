@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://s2.loli.net/2023/12/20/3Ch7rSnMxbRUkKc.png">
+  <link rel="icon" href="https://s2.loli.net/2023/12/20/3Ch7rSnMxbRUkKc.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#79CDCD">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="解个方程题目一个动态flag1234p &#x3D; 151655885656450332076952504214322757273  q &#x3D; 148531443385360803011533167272599291111  e &#x3D; 65537d &#x3D; ? 解答1234567891011import gmpy2  p &#x3D; 151655885656450332076952504214322757273  q &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青少年CTF擂台挑战赛2024Round1">
+<meta property="og:url" content="http://example.com/2023/12/20/%E9%9D%92%E5%B0%91%E5%B9%B4CTF%E6%93%82%E5%8F%B0%E6%8C%91%E6%88%98%E8%B5%9B2024Round1/index.html">
+<meta property="og:site_name" content="AlLvia">
+<meta property="og:description" content="解个方程题目一个动态flag1234p &#x3D; 151655885656450332076952504214322757273  q &#x3D; 148531443385360803011533167272599291111  e &#x3D; 65537d &#x3D; ? 解答1234567891011import gmpy2  p &#x3D; 151655885656450332076952504214322757273  q &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-20T11:46:29.000Z">
+<meta property="article:modified_time" content="2024-03-21T09:44:56.412Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>青少年CTF擂台挑战赛2024Round1 - AlLvia</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog-&#39;LD</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="青少年CTF擂台挑战赛2024Round1"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-20 19:46" pubdate>
+          2023年12月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          368 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">青少年CTF擂台挑战赛2024Round1</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="解个方程"><a href="#解个方程" class="headerlink" title="解个方程"></a>解个方程</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>一个动态flag<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">p</span> = <span class="hljs-number">151655885656450332076952504214322757273</span>  <br><span class="hljs-attr">q</span> = <span class="hljs-number">148531443385360803011533167272599291111</span>  <br><span class="hljs-attr">e</span> = <span class="hljs-number">65537</span><br><span class="hljs-attr">d</span> = ?<br></code></pre></td></tr></table></figure></p>
+<h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2  <br>p = <span class="hljs-number">151655885656450332076952504214322757273</span>  <br>q = <span class="hljs-number">148531443385360803011533167272599291111</span>  <br>e = <span class="hljs-number">65537</span>  <br>n = q*p  <br>phi = (p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)  <br>d = gmpy2.invert(e,phi)  <br><span class="hljs-built_in">print</span>(d)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">1288909371486973234158599185728560686247715008971192466783006826206253573473</span><br></code></pre></td></tr></table></figure>
+<h3 id="ez-log"><a href="#ez-log" class="headerlink" title="ez_log"></a>ez_log</h3><h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> *<br>flag=<span class="hljs-string">b&#x27;key&#123;xxxxxxx&#125;&#x27;</span><br>m=bytes_to_long(flag)<br>p=<span class="hljs-number">3006156660704242356836102321001016782090189571028526298055526061772989406357037170723984497344618257575827271367883545096587962708266010793826346841303043716776726799898939374985320242033037</span><br>g=<span class="hljs-number">3</span><br>c=<span class="hljs-built_in">pow</span>(g,m,p)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;c=&#x27;</span>,c)<br><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">c=2992612627750886887770858313476352707594644300807594304705044416699839774471838751545708692735859654685857490788683751410989270851331507477475091396007893070015119892479188689286417701654825</span><br></code></pre></td></tr></table></figure>
+<h4 id="解答："><a href="#解答：" class="headerlink" title="解答："></a>解答：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#sage</span><br>m = discrete_log(mod(c,p),mod(g,p))<br><span class="hljs-comment">#或者可以省略，直接写</span><br>m = discrete_log(c,mod(g,p))<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br>long_to_bytes(<span class="hljs-number">129834262657483951719921277</span>)<br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">b&#x27;key&#123;X8fba6&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>输入容器得到flag</p>
+<h3 id="ezrsa"><a href="#ezrsa" class="headerlink" title="ezrsa"></a>ezrsa</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br>flag = <span class="hljs-string">b&#x27;qsnctf&#123;xxx-xxxx-xxxx-xxxx-xxxxxxxxx&#125;&#x27;</span><br>m = bytes_to_long(flag)<br>p = getPrime(<span class="hljs-number">512</span>)<br>q = getPrime(<span class="hljs-number">512</span>)<br>r = getPrime(<span class="hljs-number">512</span>)<br>n = p * q * r<br>leak = p * q<br>e = <span class="hljs-number">0x10001</span><br>c = <span class="hljs-built_in">pow</span>(m, e, n)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;c = <span class="hljs-subst">&#123;c&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;n = <span class="hljs-subst">&#123;n&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;leak = <span class="hljs-subst">&#123;leak&#125;</span>&#x27;</span>)<br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string"># c = 173595148273920891298949441727054328036798235134009407863895058729356993814829340513336567479145746034781201823694596731886346933549577879568197521436900228804336056005940048086898794965549472641334237175801757569154295743915744875800647234151498117718087319013271748204766997008772782882813572814296213516343420236873651060868227487925491016675461540894535563805130406391144077296854410932791530755245514034242725719196949258860635915202993968073392778882692892</span><br><span class="hljs-string"># n = 1396260492498511956349135417172451037537784979103780135274615061278987700332528182553755818089525730969834188061440258058608031560916760566772742776224528590152873339613356858551518007022519033843622680128062108378429621960808412913676262141139805667510615660359775475558729686515755127570976326233255349428771437052206564497930971797497510539724340471032433502724390526210100979700467607197448780324427953582222885828678441579349835574787605145514115368144031247</span><br><span class="hljs-string"># leak = 152254254502019783796170793516692965417859793325424454902983763285830332059600151137162944897787532369961875766745853731769162511788354655291037150251085942093411304833287510644995339391240164033052417935316876168953838783742499485868268986832640692657031861629721225482114382472324320636566226653243762620647</span><br></code></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><script type="math/tex; mode=display">\begin{align}
+&c\equiv m^{e}\pmod{n} \\
+&c\equiv m^{e}\pmod{p*q*r}\\
+&c\equiv m^{e}\pmod{r} 
+\end{align}</script><h4 id="解答-1"><a href="#解答-1" class="headerlink" title="解答"></a>解答</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> long_to_bytes  <br><span class="hljs-keyword">import</span> gmpy2  <br>c = <br>n =  <br>leak =  <br>e = <span class="hljs-number">0x10001</span>  <br>  <br>r = n//leak  <br>phi = r-<span class="hljs-number">1</span>  <br>d = gmpy2.invert(e, phi)  <br>m = <span class="hljs-built_in">pow</span>(c, d, r)  <br><span class="hljs-built_in">print</span>(long_to_bytes(m))<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">qsnctf&#123;12ff81e0-7646-4a96-a7eb-6a509ec01c9e&#125;</span><br></code></pre></td></tr></table></figure>
+<h3 id="factor1"><a href="#factor1" class="headerlink" title="factor1"></a>factor1</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">import</span> hashlib<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br>p = getPrime(<span class="hljs-number">512</span>)<br>q = getPrime(<span class="hljs-number">512</span>)<br>d = getPrime(<span class="hljs-number">256</span>)<br>e = gmpy2.invert(d, (p**<span class="hljs-number">2</span> - <span class="hljs-number">1</span>) * (q**<span class="hljs-number">2</span> - <span class="hljs-number">1</span>))<br>flag = <span class="hljs-string">&quot;qsnctf&#123;&quot;</span> + hashlib.md5(<span class="hljs-built_in">str</span>(p + q).encode()).hexdigest() + <span class="hljs-string">&quot;&#125;&quot;</span><br><span class="hljs-built_in">print</span>(e)<br><span class="hljs-built_in">print</span>(p * q)<br><span class="hljs-comment">#4602579741478096718172697218991734057017874575484294836043557658035277770732473025335441717904100009903832353915404911860888652406859201203199117870443451616457858224082143505393843596092945634675849883286107358454466242110831071552006337406116884147391687266536283395576632885877802269157970812862013700574069981471342712011889330292259696760297157958521276388120468220050600419562910879539594831789625596079773163447643235584124521162320450208920533174722239029506505492660271016917768383199286913178821124229554263149007237679675898370759082438533535303763664408320263258144488534391712835778283152436277295861859</span><br><span class="hljs-comment">#78665180675705390001452176028555030916759695827388719494705803822699938653475348982551790040292552032924503104351703419136483078949363470430486531014134503794074329285351511023863461560882297331218446027873891885693166833003633460113924956936552466354566559741886902240131031116897293107970411780310764816053</span><br></code></pre></td></tr></table></figure>
+<h4 id="解答-2"><a href="#解答-2" class="headerlink" title="解答:"></a>解答:</h4><p> 这道是参考+复现</p>
+<script type="math/tex; mode=display">\begin{align}
+(p^2-1)(q^2-1)&=(pq)^2-(p^2+q^2)+1\\
+
+ed&\equiv1\mod (p^2-1)(q^2-1)\\
+
+ed-k*(p^2-1)(q^2-1)&=1\\
+
+(p^2-1)(q^2-1)&>2d\\
+
+\left|\frac{e}{(p^2-1)(q^2-1)}-\frac{k}{d}\right|&=\frac{1}{(p^2-1)(q^2-1)*d}<\frac{1}{2d^2}
+\end{align}</script><p>用<code>wiener</code>恢复出<code>k,d</code>，$(p^2-1)(q^2-1)$与$p^2q^2$相差$p^2+q^2-1$，相应数量级位<code>2046</code>和<code>1025</code>，故可忽略不计，将其用$p^2q^2$进行连分数渐进</p>
+<script type="math/tex; mode=display">
+\begin{align}
+p^2+q^2&=(pq)^2-(p^2-1)(q^2-1)+1\\
+p+q&=\sqrt{p^2+q^2+2pq}\\
+p-q&=\sqrt{p^2+q^2-2pq}
+\end{align}</script><p>在<code>sage</code>中有<code>two_squares</code>函数，可以暴力算$p^2+q^2$的形式，但本题数据有点大，没有跑出来。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#sage </span><br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br> <br><span class="hljs-keyword">from</span> gmpy2 <span class="hljs-keyword">import</span> iroot<br> <br><span class="hljs-keyword">import</span> hashlib<br> <br>e = <span class="hljs-number">4602579741478096718172697218991734057017874575484294836043557658035277770732473025335441717904100009903832353915404911860888652406859201203199117870443451616457858224082143505393843596092945634675849883286107358454466242110831071552006337406116884147391687266536283395576632885877802269157970812862013700574069981471342712011889330292259696760297157958521276388120468220050600419562910879539594831789625596079773163447643235584124521162320450208920533174722239029506505492660271016917768383199286913178821124229554263149007237679675898370759082438533535303763664408320263258144488534391712835778283152436277295861859</span><br> <br>pq = <span class="hljs-number">78665180675705390001452176028555030916759695827388719494705803822699938653475348982551790040292552032924503104351703419136483078949363470430486531014134503794074329285351511023863461560882297331218446027873891885693166833003633460113924956936552466354566559741886902240131031116897293107970411780310764816053</span><br> <br>pqx = pq ^ <span class="hljs-number">2</span><br> <br>fra = (e/pqx).continued_fraction()<br> <br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(fra)):<br> <br>    k, d = fra.numerator(i), fra.denominator(i)<br> <br>    <span class="hljs-keyword">if</span> (e*d - <span class="hljs-number">1</span>) % k == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> d &gt; <span class="hljs-number">2</span>^<span class="hljs-number">250</span>:<br> <br>        <span class="hljs-built_in">print</span>(k, d)<br> <br>        <span class="hljs-keyword">break</span><br> <br>temp = (e*d - <span class="hljs-number">1</span>) // k<br> <br>pq_square = pqx - temp + <span class="hljs-number">1</span><br> <br>p_q = iroot(pq_square - <span class="hljs-number">2</span>*pq, <span class="hljs-number">2</span>)[<span class="hljs-number">0</span>]<br> <br>p__q = iroot(pq_square + <span class="hljs-number">2</span>*pq, <span class="hljs-number">2</span>)[<span class="hljs-number">0</span>]<br> <br>q = (p_q + p__q) // <span class="hljs-number">2</span><br> <br>p = pq // q<br> <br>flag = <span class="hljs-string">&quot;qsnctf&#123;&quot;</span> + hashlib.md5(<span class="hljs-built_in">str</span>(p + q).encode()).hexdigest() + <span class="hljs-string">&quot;&#125;&quot;</span><br> <br><span class="hljs-built_in">print</span>(flag)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">qsnctf&#123;8072e8b2982bc729cc74ef58f1abc862&#125;</span><br></code></pre></td></tr></table></figure>
+<h3 id="四重加密"><a href="#四重加密" class="headerlink" title="四重加密"></a>四重加密</h3><p><strong>复现‘是在网上下载了一 随波逐流 CTF编码工具</strong><br>压缩包在WinRAR打开查看<br>![[Pasted image 20240302135904.png]]<br>base32解码得到：qsnctf<br>解压得txt：<br>&#122;&#99;&#121;&#101;&#123;&#109;&#120;&#109;&#101;&#109;&#116;&#120;&#114;&#122;&#116;&#95;&#108;&#122;&#98;&#104;&#97;&#95;&#107;&#119;&#109;&#113;&#122;&#101;&#99;&#125;&#124;&#107;&#101;&#121;&#61;&#104;&#101;&#108;&#108;&#111;<br>是unicoed，转ASCII：zcye{mxmemtxrzt_lzbha_kwmqzec}|key=hello<br>![[Pasted image 20240302140304.png]]<br>还没有得到flag，再解：<br>![[Pasted image 20240302140346.png]]</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>青少年CTF擂台挑战赛2024Round1</div>
+      <div>http://example.com/2023/12/20/青少年CTF擂台挑战赛2024Round1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/03/18/2024%E7%AC%AC%E4%B8%80%E5%B1%8AVCTF%E7%BA%B3%E6%96%B0%E8%B5%9Bcrypto%E6%96%B9%E5%90%91wp/" title="2024第一届VCTF纳新赛crypto方向wp">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2024第一届VCTF纳新赛crypto方向wp</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/20/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982023/" title="极客大挑战2023">
+                        <span class="hidden-mobile">极客大挑战2023</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
