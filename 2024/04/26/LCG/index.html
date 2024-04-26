@@ -16,21 +16,21 @@
   <meta name="author" content="AlLvia">
   <meta name="keywords" content="">
   
-    <meta name="description" content="狂飙题目：123456789101112131415161718192021import osfrom flag import flagfrom Crypto.Util.number import *from Crypto.Cipher import AESm &#x3D; 8800751370242424370206649084959681730482783954700764152643359778880">
+    <meta name="description" content="LCG，线性同余生成器 principle 递归公式s_{n+1}&#x3D;as_n+b\mod{p} 若$gcd(a,p)&#x3D;1$,则周期$T&#x3D;ord(a)$ 因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T&#x3D;phi(p)$ Crack methodsunknown a,b 已知：m,s0,s1,s2  \begin{align} \because s_{1} &amp;&#x3D; a * s_{">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2024第一届VCTF纳新赛crypto方向wp">
-<meta property="og:url" content="http://example.com/2024/03/18/2024%E7%AC%AC%E4%B8%80%E5%B1%8AVCTF%E7%BA%B3%E6%96%B0%E8%B5%9Bcrypto%E6%96%B9%E5%90%91wp/index.html">
+<meta property="og:title" content="LCG">
+<meta property="og:url" content="http://example.com/2024/04/26/LCG/index.html">
 <meta property="og:site_name" content="A_Litlle_World">
-<meta property="og:description" content="狂飙题目：123456789101112131415161718192021import osfrom flag import flagfrom Crypto.Util.number import *from Crypto.Cipher import AESm &#x3D; 8800751370242424370206649084959681730482783954700764152643359778880">
+<meta property="og:description" content="LCG，线性同余生成器 principle 递归公式s_{n+1}&#x3D;as_n+b\mod{p} 若$gcd(a,p)&#x3D;1$,则周期$T&#x3D;ord(a)$ 因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T&#x3D;phi(p)$ Crack methodsunknown a,b 已知：m,s0,s1,s2  \begin{align} \because s_{1} &amp;&#x3D; a * s_{">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-18T11:48:34.000Z">
-<meta property="article:modified_time" content="2024-03-18T11:50:05.850Z">
+<meta property="article:published_time" content="2024-04-26T08:48:07.000Z">
+<meta property="article:modified_time" content="2024-04-26T08:49:22.124Z">
 <meta property="article:author" content="AlLvia">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>2024第一届VCTF纳新赛crypto方向wp - A_Litlle_World</title>
+  <title>LCG - A_Litlle_World</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2024第一届VCTF纳新赛crypto方向wp"></span>
+            <span id="subtitle" data-typed-text="LCG"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-18 19:48" pubdate>
-          2024年3月18日 晚上
+        <time datetime="2024-04-26 16:48" pubdate>
+          2024年4月26日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          362 字
+          832 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -267,16 +267,80 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2024第一届VCTF纳新赛crypto方向wp</h1>
+            <h1 id="seo-header">LCG</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="狂飙"><a href="#狂飙" class="headerlink" title="狂飙"></a>狂飙</h3><h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">from</span> flag <span class="hljs-keyword">import</span> flag<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><br>m = <span class="hljs-number">88007513702424243702066490849596817304827839547007641526433597788800212065249</span><br>key = os.urandom(<span class="hljs-number">24</span>)<br>key = bytes_to_long(key)<br>n=m % key<br>flag += (<span class="hljs-number">16</span> - <span class="hljs-built_in">len</span>(flag) % <span class="hljs-number">16</span>) * <span class="hljs-string">b&#x27;\x00&#x27;</span><br>iv = os.urandom(<span class="hljs-number">16</span>)<br>aes = AES.new(key,AES.MODE_CBC,iv)<br>enc_flag = aes.encrypt(flag)<br><br><span class="hljs-built_in">print</span>(n)<br><span class="hljs-built_in">print</span>(enc_flag)<br><span class="hljs-built_in">print</span>(iv)<br><br><span class="hljs-comment">#103560843006078708944833658339172896192389513625588</span><br><span class="hljs-comment">#b&#x27;\xfc\x87\xcb\x8e\x9d\x1a\x17\x86\xd9~\x16)\xbfU\x98D\xfe\x8f\xde\x9c\xb0\xd1\x9e\xe7\xa7\xefiY\x95C\x14\x13C@j1\x9d\x08\xd9\xe7W&gt;F2\x96cm\xeb&#x27;</span><br><span class="hljs-comment">#b&#x27;UN\x1d\xe2r&lt;\x1db\x00\xdb\x9a\x84\x1e\x82\xf0\x86&#x27;</span><br></code></pre></td></tr></table></figure>
-<h4 id="解答："><a href="#解答：" class="headerlink" title="解答："></a>解答：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><br>m = <span class="hljs-number">88007513702424243702066490849596817304827839547007641526433597788800212065249</span><br>n = <span class="hljs-number">103560843006078708944833658339172896192389513625588</span><br>enc_flag = <span class="hljs-string">b&#x27;\xfc\x87\xcb\x8e\x9d\x1a\x17\x86\xd9~\x16)\xbfU\x98D\xfe\x8f\xde\x9c\xb0\xd1\x9e\xe7\xa7\xefiY\x95C\x14\x13C@j1\x9d\x08\xd9\xe7W&gt;F2\x96cm\xeb&#x27;</span><br>iv = <span class="hljs-string">b&#x27;UN\x1d\xe2r&lt;\x1db\x00\xdb\x9a\x84\x1e\x82\xf0\x86&#x27;</span><br><br><span class="hljs-comment">#factor(m-n) = 3 * 37 * 439 * 3939851 * 265898280367 * 5036645362649 * 342291058100503482469327892079792475478873</span><br>key = <span class="hljs-number">342291058100503482469327892079792475478873</span> * <span class="hljs-number">37</span> * <span class="hljs-number">439</span> * <span class="hljs-number">265898280367</span><br><br>k = long_to_bytes(key)<br><br><span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(long_to_bytes(key)) == <span class="hljs-number">24</span>:<br>    aes = AES.new(k,AES.MODE_CBC,iv)<br>    flag = aes.decrypt(enc_flag)<br>    <span class="hljs-built_in">print</span>(flag)<br></code></pre></td></tr></table></figure>
-<h3 id="RRSA"><a href="#RRSA" class="headerlink" title="RRSA"></a>RRSA</h3><h4 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flag <span class="hljs-keyword">import</span> flag<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">genprime</span>():<br>	o = getPrime(<span class="hljs-number">300</span>)<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		r = random.randint(<span class="hljs-number">2</span>**<span class="hljs-number">211</span>,<span class="hljs-number">2</span>**<span class="hljs-number">212</span>)<br>		<span class="hljs-keyword">if</span> isPrime(o*r+<span class="hljs-number">1</span>):<br>			<span class="hljs-keyword">return</span> o,o*r+<span class="hljs-number">1</span><br>o1,p = genprime()<br>o2,q = genprime()<br>n=p*q<br>g = random.randint(<span class="hljs-number">2</span>,n)<br>order = o1*o2<br><br>a = <span class="hljs-built_in">pow</span>(g, (p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)//order, n)<br><span class="hljs-keyword">assert</span> <span class="hljs-built_in">pow</span>(a,order,n)==<span class="hljs-number">1</span><br><br>m = bytes_to_long(flag)<br>e = <span class="hljs-number">65537</span><br>c = <span class="hljs-built_in">pow</span>(m,e,n)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;n=<span class="hljs-subst">&#123;n&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;c=<span class="hljs-subst">&#123;c&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;a=<span class="hljs-subst">&#123;a&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;o=<span class="hljs-subst">&#123;order&#125;</span>&#x27;</span>)<br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">n=44435425447782114838897637647733409614831121089064725526413247701631122523646623518523253532066782191116739274354991533158902831935676078270115998050827358178237970133151467497051097694866238654012042884894924846645692294679774577780414805605811029994570132760841672754334836945991390844881416693502552870759</span><br><span class="hljs-string">c=41355409695119524180275572228024314281790321005050664347253778436753663918879919757571129194249071204946415158483084730406579433518426895158142068246063333111438863836668823874266012696265984976829088976346775293102571794377818611709336242495598331872036489022428750111592728015245733975923531682859930386731</span><br><span class="hljs-string">a=39844923600973712577104437232871220768052114284995840460375902596405104689968610170336151307934820030811039502338683925817667771016288030594299464019664781911131177394369348831163266849069740191783143327911986419528382896919157135487360024877230254274474109707112110411601273850406237677432935818199348150470</span><br><span class="hljs-string">o=1745108106200960949680880500144134006212310627077303652648249235148621661187609612344828833696608872318217367008018829485062303972702933973340909520462917612611270028511222134076453</span><br></code></pre></td></tr></table></figure>
-<h4 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h4><p>由于$n=qp=(o_1<em>r_1+1)(o_2</em>r_2+1)$<br>所以用n整除o就可以得到$r_1*r_2$</p>
-<h4 id="解答：-1"><a href="#解答：-1" class="headerlink" title="解答："></a>解答：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> gmpy2<br>n=<span class="hljs-number">44435425447782114838897637647733409614831121089064725526413247701631122523646623518523253532066782191116739274354991533158902831935676078270115998050827358178237970133151467497051097694866238654012042884894924846645692294679774577780414805605811029994570132760841672754334836945991390844881416693502552870759</span><br>c=<span class="hljs-number">41355409695119524180275572228024314281790321005050664347253778436753663918879919757571129194249071204946415158483084730406579433518426895158142068246063333111438863836668823874266012696265984976829088976346775293102571794377818611709336242495598331872036489022428750111592728015245733975923531682859930386731</span><br>a=<span class="hljs-number">39844923600973712577104437232871220768052114284995840460375902596405104689968610170336151307934820030811039502338683925817667771016288030594299464019664781911131177394369348831163266849069740191783143327911986419528382896919157135487360024877230254274474109707112110411601273850406237677432935818199348150470</span><br>o=<span class="hljs-number">1745108106200960949680880500144134006212310627077303652648249235148621661187609612344828833696608872318217367008018829485062303972702933973340909520462917612611270028511222134076453</span><br>e = <span class="hljs-number">65537</span><br><br>r = n//o<br>phi = o*r<br>d = gmpy2.invert(e,phi)<br><span class="hljs-built_in">print</span>(long_to_bytes(<span class="hljs-built_in">pow</span>(c,d,n)))<br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">b&#x27;flag&#123;0228FC7F-C865-BD0F-F124-9F9860B3542B&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+                <blockquote>
+<p>LCG，线性同余生成器</p>
+<h3 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h3></blockquote>
+<p>递归公式<script type="math/tex">s_{n+1}=as_n+b\mod{p}</script></p>
+<p>若$gcd(a,p)=1$,则周期$T=ord(a)$</p>
+<p>因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T=phi(p)$</p>
+<h3 id="Crack-methods"><a href="#Crack-methods" class="headerlink" title="Crack methods"></a>Crack methods</h3><h4 id="unknown-a-b"><a href="#unknown-a-b" class="headerlink" title="unknown a,b"></a>unknown a,b</h4><blockquote>
+<p>已知：m,s0,s1,s2</p>
+</blockquote>
+<script type="math/tex; mode=display">\begin{align}
+\because s_{1} &= a * s_{0} + b \pmod m\\
+s_{2} &= a * s_{1} + b\pmod m\\
+\therefore s_{2} - s_{1} &= a * s_{1} - s_{0}\pmod m\\
+a &= \frac{s_{2} - s_{1} }{s_{1} - s_{0}}\pmod{p}
+\end{align}</script><p>以下是另一种利用格密码的解法：</p>
+<blockquote>
+<p>一组求模等式方程组的通法，基于LLL，对构造的格基进行约化</p>
+</blockquote>
+<script type="math/tex; mode=display">\left[\matrix{a&b&1&k_{1}&k_{2}}\right] 
+\left[\matrix{
+s_{0}&s_{1}&\frac{1}{m}&0&0\\
+1&1&0&\frac{1}{m}&0\\
+-s_{1}&-s_{2}&0&0&1\\
+m&0&0&0&0\\
+0&m&0&0&0
+}\right]</script><p>因此我们要找到格基约化后一个行向量，满足前两个元素为0</p>
+<blockquote>
+<p>为了在约化后的矩阵中得到直观的a, b，邻接上一个$\frac{E}{m}$（这里不用单位矩阵E的原因，是因为最好使得包含a(-a),b(-b)的行向量的长度尽可能短，也就是说更大的分母也是允许的</p>
+</blockquote>
+<p>在LLL约化后，找到满足下列要求的行向量r，即求解成功：</p>
+<ul>
+<li>r[0] = r[1] = 0</li>
+<li>r[-1] = 1(-1)<br>𝑚⋅𝑟[2]=𝑎(−𝑎),𝑚⋅𝑟[3]=𝑏(−𝑏)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#sage</span><br>A = Matrix([  <br>    [s0  ,s1  ,<span class="hljs-number">1</span>/m ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ],  <br>    [<span class="hljs-number">1</span>   ,<span class="hljs-number">1</span>   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">1</span>/m ,<span class="hljs-number">0</span>   ],  <br>    [-s1 ,-s2 ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">1</span>   ],  <br>    [m   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ],  <br>    [<span class="hljs-number">0</span>   ,m   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ,<span class="hljs-number">0</span>   ]  <br>])  <br>A = A.LLL()  <br>a = <span class="hljs-literal">None</span>  <br>b = <span class="hljs-literal">None</span>  <br><span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> A:  <br>    <span class="hljs-keyword">if</span> l[<span class="hljs-number">0</span>] == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> l[<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>:  <br>        <span class="hljs-keyword">if</span> l[-<span class="hljs-number">1</span>] == <span class="hljs-number">1</span>:  <br>            a, b = l[<span class="hljs-number">2</span>] * m, l[<span class="hljs-number">3</span>] * m  <br>        <span class="hljs-keyword">elif</span> l[-<span class="hljs-number">1</span>] == -<span class="hljs-number">1</span>:  <br>            a, b = -l[<span class="hljs-number">2</span>] * m, -l[<span class="hljs-number">3</span>] * m  <br>        <span class="hljs-keyword">else</span>:  <br>            <span class="hljs-keyword">continue</span>  <br><span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> a <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> b:  <br>    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;[*] No solves&quot;</span>)  <br>a %= m  <br>b %= m<br></code></pre></td></tr></table></figure>
+<h4 id="unknown-a-b-p"><a href="#unknown-a-b-p" class="headerlink" title="unknown a,b,p"></a>unknown a,b,p</h4><blockquote>
+<p>已知$s_{0}$~$s_6$</p>
+</blockquote>
+<p>令​<script type="math/tex">\begin{align}
+T_{n}&=s_{n+1}-s_{n}\\
+T_{n+1} &= S_{n+2} - S_{n+1} = a(S_{n+1} - S_{n})= aT_{n}\pmod p\\
+T_{n+2} &= S_{n+3} - S_{n+2} = at(S_{n+2} - S_{n+1}) = aT_{n+1} = a^{2}T_{n}\pmod p\\
+\therefore T_{n}T_{n+2} &- T_{n+1}^{2} = 0\pmod p
+\end{align}</script><br>既然$T_{n}T_{n+2} - T_{n+1}^{2}=kp$, 那么可以尝试gcd一连串的$T_{n}T_{n+2} - T_{n+1}^{2}$来找到p<br>此时问题就转化为unknown(a,b)</p>
+<h3 id="LCG-LLBP"><a href="#LCG-LLBP" class="headerlink" title="LCG_LLBP"></a>LCG_LLBP</h3><blockquote>
+<p>结合HNP的LCG，seed高位泄露</p>
+</blockquote>
+<p>这个问题一般给出了a，b，m和一组连续的seed的高位</p>
+<script type="math/tex; mode=display">\begin{align}
+&s_{n+1}=as_{n}+b\mod{p}\\
+&拆分高低位，s_{n}=h_{n}+l_{n}\\
+&h_{n+1}+l_{n+1}=a(h_{n}+l_{n})+b\mod{p}\\
+&l_{n+1}=al_{n}+ah_{n}+b-h_{n+1}\mod{p}\\
+&l_{n+2}=al_{n+1}+ah_{n+1}+b-h_{n+2}\mod{p}\\
+&\therefore l_{n+2}=al_{n}+a(ah_{n}+b-h_{n+1})+(ah_{n+1}+b-h_{n+2})\mod{p}\\
+&构造A ,B\\
+&l_{n+1}= A_{n}+b_{n}+k_{n}m\\
+&构造lattice\\
+&\left[\matrix{
+p&\\
+&p\\
+\vdots&\vdots&\ddots\\
+A_{1}&A_{2}&\cdots&1&0\\
+B_{1}&B_{2}&\cdots&0&2^{lbit}
+}\right]
+\end{align}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#sage</span><br>p=...<br>a=...<br>b=...<br>s=[...]<br>lbit=...<br><br>s.insert(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>) <span class="hljs-comment">#添上未输出s0 = 0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>    out[i] &lt;&lt;= lbit<br>A = [<span class="hljs-number">1</span>]<br>B = [<span class="hljs-number">0</span>]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>):<br>    A.append(a*A[i-<span class="hljs-number">1</span>] % p)<br>    B.append((a*B[i-<span class="hljs-number">1</span>]+a*s[i]+b-s[i+<span class="hljs-number">1</span>]) % p)<br>A = A[<span class="hljs-number">1</span>:]<br>B = B[<span class="hljs-number">1</span>:]<br><br>Ai = matrix(A)<br>Bi = matrix(B)<br>Mi = matrix.identity(<span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>)*p<br>K = ZZ(<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,lbit))<br>M = matrix.block([[Mi,ZZ(<span class="hljs-number">0</span>),ZZ(<span class="hljs-number">0</span>)],[Ai,ZZ(<span class="hljs-number">1</span>),ZZ(<span class="hljs-number">0</span>)],[Bi,ZZ(<span class="hljs-number">0</span>),K]])<br><br>ll = M.LLL()[<span class="hljs-number">0</span>]<br>l1 = ll[-<span class="hljs-number">2</span>]<br>h1 = out[<span class="hljs-number">1</span>]<br>s1 = l1+h1<br><span class="hljs-comment">#for s1=a*seed+b%m</span><br>seed = ((s1-b)*inverse_mod(a,p))%p<br><span class="hljs-built_in">print</span>(seed)<br><br></code></pre></td></tr></table></figure>
+<p>得到seed之后就可以直接推测next了</p>
+<p>参考<a target="_blank" rel="noopener" href="https://dunkirkturbo.github.io/2020/03/27/Summary-of-Crypto-in-CTF-PRNG/">Summary-of-Crypto-in-CTF(PRNG) | 0xDktb’s Blog (dunkirkturbo.github.io)</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45883223/article/details/115299389">LCG(线性同余生成器)-CSDN博客</a><br><a target="_blank" rel="noopener" href="https://hasegawaazusa.github.io/hidden-number-problem.html#llbp%E7%BA%BF%E6%80%A7%E4%BD%8D%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98">| 独奏の小屋 (hasegawaazusa.github.io)</a></p>
+
                 
               </div>
             
@@ -293,8 +357,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2024第一届VCTF纳新赛crypto方向wp</div>
-      <div>http://example.com/2024/03/18/2024第一届VCTF纳新赛crypto方向wp/</div>
+      <div>LCG</div>
+      <div>http://example.com/2024/04/26/LCG/</div>
     </div>
     <div class="license-meta">
       
@@ -306,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月18日</div>
+          <div>2024年4月26日</div>
         </div>
       
       
@@ -338,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/21/%E9%9D%92%E5%B0%91%E5%B9%B4CTF%E6%93%82%E5%8F%B0%E6%8C%91%E6%88%98%E8%B5%9B2024Round1/" title="青少年CTF擂台挑战赛2024Round1">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">青少年CTF擂台挑战赛2024Round1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/22/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982023/" title="极客大挑战2023">
-                        <span class="hidden-mobile">极客大挑战2023</span>
+                      <a href="/2024/03/31/%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B0%8F%E7%9A%84pwntools%E4%BA%A4%E4%BA%92/" title="一个小小的pwntools交互">
+                        <span class="hidden-mobile">一个小小的pwntools交互</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
