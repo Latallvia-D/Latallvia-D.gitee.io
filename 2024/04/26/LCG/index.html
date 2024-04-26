@@ -16,15 +16,15 @@
   <meta name="author" content="AlLvia">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LCG，线性同余生成器 principle 递归公式s_{n+1}&#x3D;as_n+b\mod{p} 若$gcd(a,p)&#x3D;1$,则周期$T&#x3D;ord(a)$ 因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T&#x3D;phi(p)$ Crack methodsunknown a,b 已知：m,s0,s1,s2  \begin{align} \because s_{1} &amp;&#x3D; a * s_{">
+    <meta name="description" content="LCG，线性同余生成器  principle递归公式s_{n+1}&#x3D;as_n+b\mod{p} 若$gcd(a,p)&#x3D;1$,则周期$T&#x3D;ord(a)$ 因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T&#x3D;phi(p)$ Crack methodsunknown a,b 已知：m,s0,s1,s2  \begin{align} \because s_{1} &amp;&#x3D; a * s_{">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LCG">
 <meta property="og:url" content="http://example.com/2024/04/26/LCG/index.html">
 <meta property="og:site_name" content="A_Litlle_World">
-<meta property="og:description" content="LCG，线性同余生成器 principle 递归公式s_{n+1}&#x3D;as_n+b\mod{p} 若$gcd(a,p)&#x3D;1$,则周期$T&#x3D;ord(a)$ 因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T&#x3D;phi(p)$ Crack methodsunknown a,b 已知：m,s0,s1,s2  \begin{align} \because s_{1} &amp;&#x3D; a * s_{">
+<meta property="og:description" content="LCG，线性同余生成器  principle递归公式s_{n+1}&#x3D;as_n+b\mod{p} 若$gcd(a,p)&#x3D;1$,则周期$T&#x3D;ord(a)$ 因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T&#x3D;phi(p)$ Crack methodsunknown a,b 已知：m,s0,s1,s2  \begin{align} \because s_{1} &amp;&#x3D; a * s_{">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-26T08:48:07.000Z">
-<meta property="article:modified_time" content="2024-04-26T08:49:22.124Z">
+<meta property="article:modified_time" content="2024-04-26T08:51:18.333Z">
 <meta property="article:author" content="AlLvia">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -274,8 +274,8 @@
                 
                 <blockquote>
 <p>LCG，线性同余生成器</p>
-<h3 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h3></blockquote>
-<p>递归公式<script type="math/tex">s_{n+1}=as_n+b\mod{p}</script></p>
+</blockquote>
+<h3 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h3><p>递归公式<script type="math/tex">s_{n+1}=as_n+b\mod{p}</script></p>
 <p>若$gcd(a,p)=1$,则周期$T=ord(a)$</p>
 <p>因此选取系数时应尽量使得a为模m的原根，以此尽量延长LCG周期，使$T=phi(p)$</p>
 <h3 id="Crack-methods"><a href="#Crack-methods" class="headerlink" title="Crack methods"></a>Crack methods</h3><h4 id="unknown-a-b"><a href="#unknown-a-b" class="headerlink" title="unknown a,b"></a>unknown a,b</h4><blockquote>
@@ -723,5 +723,20 @@ B_{1}&B_{2}&\cdots&0&2^{lbit}
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
