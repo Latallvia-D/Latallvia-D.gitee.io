@@ -24,7 +24,7 @@
 <meta property="og:description" content="Matrix RSA论文复现+H&amp;NCTF相关题目复现 RSA相关 Theorem 1. Euler’s Theorem. Let $a \in \mathbb{Z}$ and $n\in\mathbb{N}$. If$\gcd(a, n)&#x3D;1$, then $a^{\phi(n)} \equiv 1 \pmod{n}$.Lemma 1. Let $x, y, a, b \in\mathb">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-02T09:54:44.000Z">
-<meta property="article:modified_time" content="2024-07-02T10:33:21.390Z">
+<meta property="article:modified_time" content="2024-07-08T08:55:36.461Z">
 <meta property="article:author" content="AlLvia">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.5k 字
         
       </span>
     
@@ -307,7 +307,7 @@
 <blockquote>
 <p>Theorem 5. Let $n = pq$ where p and q are distinct prime numbers, let $M\in GL_2(\mathbb{Z}_n)$ be a matrix made up of nonnegative integers less than n, let $g_{p} = |GL_2(\mathbb{Z}_{p})|= (p^2−1)(p^2−p)$ and $g_q = |GL_2(\mathbb{Z}_{q})|=(q^{2}−1)(q^{2}-q)$ and define $g=g_{p}g_{q}$ . Further let $e, d \in \mathbb{Z}^{+}$ such that $ed\equiv \pmod{g}$, and let $C\equiv M^{e}\pmod{n}$. Then $C^{d}\equiv M\pmod{g}$.</p>
 </blockquote>
-<p>$Proof.$假设已经定义了上述所有变量和矩阵，有$C^{d}\equiv M^{ed}\equiv M\pmod{n}$。<br>因为$ed\equiv 1\pmod{g}$，根据同余定义，存在整数 k 使得$ed = 1 + kg$。从而$M^{ed} ≡ M^{1+kg} \pmod{n}$， 因此$M^{ed} ≡ M^{1+kg} ≡ M <em> (M^{g_{p}})^{g_{q} </em> k} \pmod{p}$。<br>由于$g_p$定义为$GL_2(ℤ_p)$的阶，而$M$的循环子群$\langle M\rangle$是$GL_2(ℤ_p)$的子群，根据拉格朗日定理，$|\langle M\rangle|$ 必然整除$g_p$。这意味着存在整数j使得$g_p = j <em> |\langle M\rangle|$，于是$C^{d} \equiv M^{e} \equiv M </em> M^{g_{p}<em>g_{q}</em>k}\equiv M <em> ((M^{j </em> |\langle M\rangle|})^{g_{q}})^{k} \equiv M <em> (M^{j </em> |\langle M\rangle| <em> g_{q} </em> k}) \equiv M <em> I^{j </em> g_{q} * k} ≡ M \pmod{p}$。<br>同理可以证明$C^d \equiv M \pmod{p}$。<br>由引理1我们得到$C^d \equiv M \pmod{n}$。</p>
+<p>$Proof.$假设已经定义了上述所有变量和矩阵，有$C^{d}\equiv M^{ed}\equiv M\pmod{n}$。<br>因为$ed\equiv 1\pmod{g}$，根据同余定义，存在整数 k 使得$ed = 1 + kg$。从而$M^{ed} ≡ M^{1+kg} \pmod{n}$， 因此$M^{ed} ≡ M^{1+kg} ≡ M \cdot (M^{g_{p}})^{g_{q} \cdot k} \pmod{p}$<br>由于$g_p$定义为$GL_2(ℤ_p)$的阶，而$M$的循环子群$\langle M\rangle$是$GL_2(ℤ_p)$的子群，根据拉格朗日定理，$|\langle M\rangle|$ 必然整除$g_p$。这意味着存在整数j使得$g_p = j \cdot |\langle M\rangle|$，于是$C^{d} \equiv M^{e} \equiv M\cdot M^{g_{p}\cdot g_{q}\cdot k}\equiv M \cdot ((M^{j \cdot | \langle M\rangle |})^{g_{q}})^{k} \equiv M \cdot (M^{j \cdot | \langle M\rangle | \cdot g_{q} \cdot k}) \equiv M \cdot I^{j \cdot g_{q} \cdot k} ≡ M \pmod{p}$。<br>同理可以证明$C^d \equiv M \pmod{p}$。<br>由引理1我们得到$C^d \equiv M \pmod{n}$。</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>文章中选择了$p=503,q=499$也就是$n=250997$，$e=241$作为公钥对。<script type="math/tex">\begin{align}
 g_{p}=(p^{2}-p)(p^{2}-1)\\g_{q}=(q^{2}-q)(q^{2}-1)
 \end{align}</script>则</p>
